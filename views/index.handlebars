@@ -1,0 +1,73 @@
+<div class="container">
+    <div class="row">
+            <h1>Para qué vivir sin empanadas!!</h1>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="row">
+                    <h2>Empanadas Disponibles</h2>
+            </div>
+            <div class="row">
+                <ul>
+                    {{#each empanadas}}
+                        {{#unless devoured}}
+                        <li>
+                            {{name}}
+
+                            <button class="change-devoured" data-id="{{id}}" data-newdevoured="{{devoured}}">
+                                MORFAR!
+                            </button>
+
+                            <button class="delete-empanada" data-id="{{this.id}}">Que asco!!</button>
+                        </li>
+                        {{/unless}}
+                    {{/each}}
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="row">
+                    <h2>Empanadas que ya fueron devorados!</h2>
+            </div>
+            <div class="row">
+                <ul>
+                    {{#each empanadas}}
+                        {{#if devoured}}
+                        <li>
+                            {{name}}
+                            <button class="change-devoured" data-id="{{id}}" data-newdevoured="{{devoured}}">
+                                Haceme una!!
+                            </button>
+                        </li>
+                        {{/if}}
+
+                    {{/each}}
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-6">
+            <div class="row">
+                <h2>Agregá la tuya!</h2>
+            </div>
+            <div class="row">
+                <form class="create-form">
+                        <div class="form-group">
+                            <label for="nosa">Nombre/Sabor:</label>
+                            <input type="text" id="nosa" name="name">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="devoured">La comiste?</label><br>
+                            <input type="radio" name="devoured" value="1" checked> Sí<br>
+                            <input type="radio" name="devoured" value="0"> Todavía no
+                        </div>
+
+                        <button type="submit" class="create-form">Agregar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
